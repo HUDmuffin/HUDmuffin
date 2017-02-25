@@ -3,20 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class planescript : MonoBehaviour {
+	string url = "http://i.imgur.com/6g4wY8F.png";
+
 	IEnumerator Start () {
-		string url = "https://i.imgflip.com/1kc3j8.jpg";
 		WWW www = new WWW(url);
 		yield return www;
-
-		GetComponent<Renderer>().material.mainTexture = www.texture;
-		load_image ();
-	}
-
-	IEnumerator load_image() {
-		Debug.Log ("loading an image");
-		string url = "https://i.imgflip.com/1kc3j8.jpg";
-		WWW www = new WWW(url);
-		yield return www;
+		www.texture.alphaIsTransparency = true;
+		GetComponent<Renderer>().material = new Material(Shader.Find("Unlit/Transparent"));
 
 		GetComponent<Renderer>().material.mainTexture = www.texture;
 	}
