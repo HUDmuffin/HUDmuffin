@@ -1,8 +1,0 @@
- Here is an exmaple text file with the GitHub tutorial links I posted
- 
- https://www.youtube.com/watch?v=0fKg7e37bQE
- 
- https://www.codecademy.com/learn/learn-git
- 
- Feel free to purge this file from the repo if you would like
- 
