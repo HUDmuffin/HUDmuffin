@@ -1,7 +1,10 @@
-# Welcome to the HUDmuffin Project
+# Welcome to the HUDmuffin Project Repository Page!
 #
-#This is the Backend coding Repository page.
-#In ths repository you may be able to commit code related to the API used to pull data required to be displayed on the AR
+#This is the AR App coding Repository page.
+#In this repository you may be able to commit code related to the Unity3D App used to present the actual app on the phone (at least this is the target for this project)
+#
+#
+# This code will need to pull its data from the API available at the Backend repository
 #
 #
 #
