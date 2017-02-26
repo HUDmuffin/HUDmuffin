@@ -44,7 +44,7 @@ public class planescript : MonoBehaviour {
 		//yield return www;
 		//GetComponent<Renderer>().material = new Material(Shader.Find("Unlit/Transparent"));
 
-		string image_url = "http://dev1-api.prolifiq.com/muffin/api/calendar/101?month=march";
+		string image_url = "http://dev1-api.prolifiq.com/muffin/api/calendar/101?month=february";
 		var headers = new Hashtable();
 		headers.Add("Content-Type", "application/json");
 		WWW response = new WWW(image_url);
