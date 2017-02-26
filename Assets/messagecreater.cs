@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class messagecreater : MonoBehaviour {
-	float timeLeft = 5.0f;
+	float timeLeft = 1.0f;
 	ImgResponse r;
 
 	// Use this for initialization
@@ -46,14 +46,14 @@ public class messagecreater : MonoBehaviour {
 
 		if(timeLeft < 0)
 		{
-			timeLeft = 5.0f;
+			timeLeft = 2.0f;
 			Debug.Log ("making plane");
 			GameObject plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
 			plane.transform.position = new Vector3(0, 0, 20);
 			plane.transform.Rotate (new Vector3 (0, 180, 0));
 
 			MeshFilter meshFilter = plane.GetComponent<MeshFilter> ();
-			meshFilter.mesh = CreateMesh(10, 4);
+			meshFilter.mesh = CreateMesh(10, 3);
 			//MeshRenderer renderer = plane.AddComponent(typeof(MeshRenderer)) as MeshRenderer;
 			//renderer.material.shader = Shader.Find ("Mobile/Particles/Alpha Blended");
 			plane.transform.parent = this.transform;
@@ -61,7 +61,7 @@ public class messagecreater : MonoBehaviour {
 
 			//plane.GetComponent<Renderer>().material.shader = Shader.Find ("Mobile/Particles/Alpha Blended");
 			plane.GetComponent<Renderer>().material.mainTexture = r.get_texture(); 
-			plane.transform.position = new Vector3(0, 0, 20);
+			plane.transform.position = new Vector3(0, 2.5f, 20);
 			plane.transform.Rotate (new Vector3 (0, 180, 0));
 
 			Debug.Log ("goint to loop");
@@ -71,7 +71,7 @@ public class messagecreater : MonoBehaviour {
 			for (int i = 0; i < transform.childCount - 1; i++) {
 				Debug.Log ("running");
 				Debug.Log (i);
-				transform.GetChild (i).transform.Translate (0, -4.25f, 0);
-				if (i >= 3) {
+				transform.GetChild (i).transform.Translate (0, -3.25f, 0);
+				if (i == 0 && transform.childCount >= 6) {
 					Debug.Log ("removing");
-						GameObject.Destroy (transform.GetChild (i)); }}}}}
+					Destroy (transform.GetChild (i).gameObject, 0.25f); }}}}}
