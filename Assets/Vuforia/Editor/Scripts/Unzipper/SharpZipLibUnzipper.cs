@@ -21,12 +21,13 @@ namespace Vuforia.EditorClasses
         static SharpZipLibUnzipper()
         {
             Unzipper.Instance = new SharpZipLibUnzipper();
+
         }
 
         public Stream UnzipFile(string path, string fileNameinZip)
         {
     #if !EXCLUDE_JAVASCRIPT
-            return Unzip.Unzip(path, fileNameinZip);
+			return null; //return Unzip.Unzip(path, fileNameinZip);
     #else
             return null;
     #endif
