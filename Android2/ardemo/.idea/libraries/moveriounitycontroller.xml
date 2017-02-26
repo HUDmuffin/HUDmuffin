@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="moveriounitycontroller">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/moveriounitycontroller.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

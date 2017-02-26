@@ -35,10 +35,14 @@ public class planescript : MonoBehaviour {
 	string url = "http://i.imgur.com/6g4wY8F.png";
 
 	IEnumerator Start () {
-		/*WWW www = new WWW(url);
+		//GetComponent<Renderer>().material = new Material(Shader.Find("Unlit/Transparent"));
+		//GetComponent<Renderer>().material.mainTexture = Resources.Load("screenshot") as Texture; 
 
-		yield return www;
-		GetComponent<Renderer>().material = new Material(Shader.Find("Unlit/Transparent"));*/
+
+//		WWW www = new WWW(url);
+
+		//yield return www;
+		//GetComponent<Renderer>().material = new Material(Shader.Find("Unlit/Transparent"));
 
 		string image_url = "http://dev1-api.prolifiq.com/muffin/api/calendar/101?month=march";
 		var headers = new Hashtable();
@@ -49,10 +53,10 @@ public class planescript : MonoBehaviour {
 		//string dummy = "{image: \"asdf\", status:\"asdf\",ReceivedOn: \"skldfjsdlkf\", RecievedBy: \"sdkfj\"}";
 
 		ImgResponse r = ImgResponse.CreateFromJSON(response.text);
-		GetComponent<Renderer>().material = new Material(Shader.Find("Unlit/Transparent"));
+		GetComponent<Renderer>().material = new Material(Shader.Find("Mobile/Particles/Alpha Blended"));
 		GetComponent<Renderer>().material.mainTexture = r.get_texture(); 
 
-		//GetComponent<Renderer>().material.mainTexture = www.texture;
+		//GetComponent<Renderer>().material.mainTexture = www.texture;*/
 	}
 
 	IEnumerator get_image() {
