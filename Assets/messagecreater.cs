@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class messagecreater : MonoBehaviour {
-	float timeLeft = 1.0f;
+	public float timeLeft = 1.0f;
 	string[] urls =	 new string[] {"http://i.imgur.com/LuewFKJ.png",
 					 "http://i.imgur.com/bmqnPN0.png",
 		"http://i.imgur.com/L3d83qb.png"};
 	Texture[] textures = new Texture[] { null, null, null };
 	int cururl = 0;
 	ImgResponse r;
+	bool was_not_zero = false;
 	WWW resp;
 
 	// Use this for initialization
@@ -55,18 +56,33 @@ public class messagecreater : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		timeLeft -= Time.deltaTime;
+		
+		var arcamera = GameObject.FindWithTag("arcamera");
+		Debug.Log ("xpos cam");
+		Debug.Log (arcamera.transform.position.x);
+		if (arcamera.transform.position.x == 0) {
+			if (was_not_zero) {
+				for (int i = 0; i < transform.childCount - 1; i++) {
+					Destroy (transform.GetChild (i).gameObject, 0.25f);
+				}
+				was_not_zero = false;
+				timeLeft = 0f; }}
+		else {
+			was_not_zero = true; }
 
+		timeLeft -= Time.deltaTime;
+		Debug.Log ("timeLeft");
+		Debug.Log(timeLeft);
 		if(timeLeft < 0)
 		{
-			timeLeft = 2.0f;
+			timeLeft = ((float)Random.Range (0, 100) / 100f) * 7f;
 			Debug.Log ("making plane");
 			GameObject plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
 			//plane.transform.position = new Vector3(0, 0, 20);
 			//plane.transform.Rotate (new Vector3 (0, 180, 0));
 
 			MeshFilter meshFilter = plane.GetComponent<MeshFilter> ();
-			meshFilter.mesh = CreateMesh(1.5f, 10);
+			meshFilter.mesh = CreateMesh(1f, 7);
 			//MeshRenderer renderer = plane.AddComponent(typeof(MeshRenderer)) as MeshRenderer;
 			//renderer.material.shader = Shader.Find ("Mobile/Particles/Alpha Blended");
 			plane.transform.parent = this.transform;
@@ -78,7 +94,7 @@ public class messagecreater : MonoBehaviour {
 			if (cururl >= textures.Length) {
 				cururl = 0;
 			}
-			plane.transform.position = new Vector3(0, 2.5f, 20);
+			plane.transform.position = new Vector3(2.5f, 2.5f, 20);
 			plane.transform.Rotate (new Vector3 (0, 180, 90));
 
 			Debug.Log ("goint to loop");
@@ -88,7 +104,7 @@ public class messagecreater : MonoBehaviour {
 			for (int i = 0; i < transform.childCount - 1; i++) {
 				Debug.Log ("running");
 				Debug.Log (i);
-				transform.GetChild (i).transform.Translate (-3.25f, 0, 0);
+				transform.GetChild (i).transform.Translate (-2.15f, 0, 0);
 				if (i == 0 && transform.childCount >= 6) {
 					Debug.Log ("removing");
 					Destroy (transform.GetChild (i).gameObject, 0.25f); }}}}}
