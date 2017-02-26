@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class messagecreater : MonoBehaviour {
-	public float timeLeft = 1.0f;
+	public float timeLeft = 5.0f;
 	string[] urls =	 new string[] {"http://i.imgur.com/LuewFKJ.png",
 					 "http://i.imgur.com/bmqnPN0.png",
 		"http://i.imgur.com/L3d83qb.png"};
@@ -30,7 +30,8 @@ public class messagecreater : MonoBehaviour {
 			resp = new WWW(urls[i]);
 			yield return resp;
 			
-			textures[i] = resp.texture; }}
+			textures[i] = resp.texture; }
+		timeLeft = 0.0f; }
 
 	Mesh CreateMesh(float width, float height)
 	{
@@ -82,7 +83,7 @@ public class messagecreater : MonoBehaviour {
 			//plane.transform.Rotate (new Vector3 (0, 180, 0));
 
 			MeshFilter meshFilter = plane.GetComponent<MeshFilter> ();
-			meshFilter.mesh = CreateMesh(1f, 7);
+			meshFilter.mesh = CreateMesh(1f, 5.25f);
 			//MeshRenderer renderer = plane.AddComponent(typeof(MeshRenderer)) as MeshRenderer;
 			//renderer.material.shader = Shader.Find ("Mobile/Particles/Alpha Blended");
 			plane.transform.parent = this.transform;
