@@ -20,7 +20,7 @@ namespace Vuforia.EditorClasses
         /// </summary>
         static ComponentFactoryStarter()
         {
-            BehaviourComponentFactory.Instance = new VuforiaBehaviourComponentFactory();
+            BehaviourComponentFactory.Instance = new VuforiaBehaviourComponentFactory	();
         }
     }
 }

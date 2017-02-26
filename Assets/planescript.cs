@@ -13,6 +13,8 @@ using System.Threading;
 public class ImgResponse
 {
 	public string image;
+	public string image1;
+	public string image2;
 	public string status;
 	public string ReceivedOn;
 	public string RecievedBy;
@@ -25,7 +27,7 @@ public class ImgResponse
 
 	public Texture2D get_texture() {
 		Texture2D texture = new Texture2D (1, 1);
-		texture.LoadImage (Convert.FromBase64String (image)); 
+		texture.LoadImage (Convert.FromBase64String (image1)); 
 		return texture;
 	}
 
